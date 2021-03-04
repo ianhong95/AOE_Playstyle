@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const NextButton = ({ btnText }) => {
     return (
-        <button type="button" class="btn btn-outline-primary">{btnText}</button>
+        <button type="button" class="btn btn-outline-success btn-lg btn-block">{btnText}</button>
     )
 }
 

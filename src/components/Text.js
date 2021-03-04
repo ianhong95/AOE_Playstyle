@@ -2,15 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 
-const Text = ( {text} ) => {
+const Text = ( {text, alignment} ) => {
     return (
-        <p>{text}</p>
+        <p style={{textAlign: 'center'}}>{text}</p>
     )
 }
 
 
 Text.defaultProps = {
-    text: 'Click the button below to begin!'
+    text: 'Click the button below to begin!',
 }
 
 export default Text
