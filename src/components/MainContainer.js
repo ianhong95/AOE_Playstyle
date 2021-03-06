@@ -4,9 +4,9 @@ import NextButton from './NextButton'
 import SubHeader from './SubHeader'
 import Text from './Text'
 
-const MainContainer = () => {
+const MainContainer = ({ DisplayContainer }) => {
     return (
-        <div class="jumbotron">
+        <div className="jumbotron">
             <Header />
             <SubHeader />
             <hr class="my-4"></hr>
