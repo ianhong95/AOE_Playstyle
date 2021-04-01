@@ -2,18 +2,18 @@ import logo from './logo.svg';
 import './App.css';
 import MainContainer from './components/MainContainer'
 import Question1 from './components/Question1'
-import { useState } from 'react'
+import React, { useState } from 'react';
 
 // Find bootstrap template details on https://bootswatch.com/cyborg/
 
 function App() {
 
-  // console.log(MainContainer.NextButton.state)
+  const [visible, setVisible] = useState(true);
 
   return (
     <div>
-      <MainContainer />
-      {/* <Question1 /> */}
+      {/* <MainContainer /> */}
+      {{visible} ? <Question1 /> : null}
     </div>
   );
 }

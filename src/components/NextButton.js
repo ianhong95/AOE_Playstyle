@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 
@@ -26,9 +26,11 @@ const NextButton = ({ btnText }) => {
     // console.log('current state: ' + state)
 
     return (
-        <button type="button" 
+        <button 
+            type="button" 
             class="btn btn-outline-success btn-lg btn-block"
-            onClick={() => setQCount(qCount + 1)} 
+            // onClick={() => setQCount(qCount + 1)} 
+            onClick={() => this.setVisible(false)}
         >{btnText}</button>
     )
 
