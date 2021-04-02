@@ -11,7 +11,7 @@ const MainContainer = ({ DisplayContainer }) => {
             <SubHeader />
             <hr class="my-4"></hr>
             <Text />
-            <NextButton />
+            {/* <NextButton /> */}
         </div>
     )
 }

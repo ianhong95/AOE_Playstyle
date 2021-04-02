@@ -14,23 +14,47 @@ import React, { useState } from 'react';
 function App() {
 
   const [question, setQuestion] = useState(0)
-  // var question = MainContainer;
+  var display = <MainContainer />
+
+  switch(question) {
+    case 1:
+      console.log('Loading question 1')
+      display = <Question1 />
+      break;
+    case 2:
+      console.log('Loading question 2')
+      display = <Question2 />
+      break;
+    case 3:
+      console.log('Loading question 3')
+      display = <Question3 />
+      break;
+    case 4:
+      console.log('Loading question 4')
+      display = <Question4 />
+      break;
+    case 5:
+      console.log('Loading question 5')
+      display = <Question5 />
+      break;
+    case 6:
+      setQuestion(0)
+      display = <MainContainer />
+      break;
+  }
 
   console.log(question)
-  // switch(qCount) {
-  //   case 0:
-  //     setQuestion(qCount+1)
-  //   case 1:
-  //     question = Question1
-  //     setQuestion(qCount+1)
-  
-  //   default:
-  //     setQuestion(MainContainer);
-  // }
 
   return (
     <div>
-      <question />
+      { display }
+      <button 
+            type="button" 
+            className="btn btn-outline-success btn-lg btn-block"
+            onClick={() =>
+              setQuestion(question+1)
+            }
+        >Next</button>
     </div>
   );
 }

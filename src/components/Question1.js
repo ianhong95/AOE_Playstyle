@@ -12,9 +12,9 @@ const Question1 = () => {
             <AnswerButton Answer='Aggressive'/>
             <AnswerButton Answer='Booming (Economical)' />
             <hr/>
-            <div>
+            {/* <div>
                 <NextButton btnText='Next' />
-            </div>
+            </div> */}
             
         </div>
     )

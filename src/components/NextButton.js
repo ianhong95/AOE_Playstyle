@@ -15,7 +15,7 @@ const NextButton = ({ btnText }) => {
             onClick={() => 
                 setVisible(!visible)
             } 
-        >{visible ? btnText : "hidden"}</button>
+        >{visible ? btnText : "goodbye"}</button>
     )
 
 }

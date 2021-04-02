@@ -12,9 +12,9 @@ const Question2 = () => {
             <AnswerButton Answer='1v1' />
             <AnswerButton Answer='Team games' />
             <hr/>
-            <div>
+            {/* <div>
                 <NextButton btnText='Next' />
-            </div>
+            </div> */}
             
         </div>
     )
