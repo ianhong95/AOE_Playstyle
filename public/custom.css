@@ -1,15 +1,20 @@
 .nbtn {
-    width: 150px;
+    width: 15%;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    transform: translateX(100px)
+    left: 60%;
+    transform: translateX(-50%) !important;
+    /* transform: translateX(100px) !important; */
+    margin-top: 0px !important
 }
 
 .bbtn {
-    width: 150px;
+    width: 15%;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    transform: translateX(-100px)
+    left: 40%;
+    transform: translateX(-50%) !important;
+    /* transform: translateX(-100px) !important */
+}
+
+.cttext {
+    text-align: center
 }

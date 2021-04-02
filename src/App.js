@@ -59,14 +59,17 @@ function App() {
             onClick={() =>
               question > 1 ? setQuestion(question-1) : setQuestion(0)
             }
+            disabled={question===0}
         >Back</button>
       <button 
             type="button" 
-            className="btn nbtn btn-outline-success btn-lg btn-block"
+            className="btn btn-outline-success btn-lg btn-block nbtn"
             onClick={() =>
               question < 7 ? setQuestion(question+1) : setQuestion(0)
             }
-        >Next</button>
+        >{question === 0 ? 'Begin' :
+        question > 0 & question < 6 ? 'Next' :
+        question === 6 ? 'Finish' : null}</button>
     </div>
   );
 }

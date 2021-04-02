@@ -6,7 +6,7 @@ import AnswerButton from './AnswerButton'
 
 const Question4 = () => {
     return (
-        <div class='jumbotron'>
+        <div class='jumbotron cttext'>
             <Header title='Question 4' />
             <SubHeader subText='What kind of civ bonuses do you like?' />
             <AnswerButton Answer='Economy'/>
