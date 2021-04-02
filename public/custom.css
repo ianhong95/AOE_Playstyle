@@ -1,0 +1,15 @@
+.nbtn {
+    width: 150px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transform: translateX(100px)
+}
+
+.bbtn {
+    width: 150px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transform: translateX(-100px)
+}
