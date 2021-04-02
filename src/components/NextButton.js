@@ -1,40 +1,22 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { useState } from 'react'
 
 
 const NextButton = ({ btnText }) => {
 
-    const [qCount, setQCount] = useState(0)
+    const [visible, setVisible] = useState(true)
 
-    // function goToNext() {
-    //     console.log('previous state: ' + state)
-    
-    //     switch(state) {
-    //         case 'start':
-    //             setState('next')
-    //             break;
-    //         case 'next':
-    //             setState('success')
-    //             break;
-    //         case 'success':
-    //             setState('yay')
-    //             break;
-    //   }
-    // }
-
-    // console.log('current state: ' + state)
+    console.log(visible)
 
     return (
         <button 
             type="button" 
             class="btn btn-outline-success btn-lg btn-block"
-            // onClick={() => setQCount(qCount + 1)} 
-            onClick={() => this.setVisible(false)}
-        >{btnText}</button>
+            onClick={() => 
+                setVisible(!visible)
+            } 
+        >{visible ? btnText : "hidden"}</button>
     )
-
-    console.log(qCount)
 
 }
 
