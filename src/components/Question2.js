@@ -4,18 +4,17 @@ import Header from './Header'
 import SubHeader from './SubHeader'
 import AnswerButton from './AnswerButton'
 
+const answers = ['1v1', 'Team games']
+
 const Question2 = () => {
     return (
         <div class='jumbotron cttext'>
             <Header title='Question 2' />
             <SubHeader subText='What scale of games do you like to play?' />
-            <AnswerButton Answer='1v1' />
-            <AnswerButton Answer='Team games' />
+            {answers.map(answer =>(
+                <AnswerButton Answer={answer}/>
+            ))}
             <hr/>
-            {/* <div>
-                <NextButton btnText='Next' />
-            </div> */}
-            
         </div>
     )
 }

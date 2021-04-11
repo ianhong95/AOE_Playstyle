@@ -4,18 +4,18 @@ import Header from './Header'
 import SubHeader from './SubHeader'
 import AnswerButton from './AnswerButton'
 
+const answers = ['Aggressive', 'Booming (Economical)']
+
 const Question1 = () => {
+
     return (
-        <div class='jumbotron cttext'>
+        <div className='jumbotron cttext'>
             <Header title='Question 1' />
             <SubHeader subText='Select your preferred style' />
-            <AnswerButton Answer='Aggressive'/>
-            <AnswerButton Answer='Booming (Economical)' />
+            {answers.map(answer =>(
+                <AnswerButton Answer={answer}/>
+            ))}
             <hr/>
-            {/* <div>
-                <NextButton btnText='Next' />
-            </div> */}
-            
         </div>
     )
 }

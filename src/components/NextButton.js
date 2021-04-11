@@ -4,18 +4,12 @@ import PropTypes from 'prop-types'
 
 const NextButton = ({ btnText }) => {
 
-    const [visible, setVisible] = useState(true)
-
-    console.log(visible)
-
     return (
         <button 
             type="button" 
-            class="btn btn-outline-success btn-lg btn-block"
-            onClick={() => 
-                setVisible(!visible)
-            } 
-        >{visible ? btnText : "goodbye"}</button>
+            className="btn btn-outline-success btn-lg btn-block"
+            // onClick={()=>{console.log('lol')}} 
+        >hello</button>
     )
 
 }

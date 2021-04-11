@@ -8,12 +8,14 @@ import Question3 from './components/Question3'
 import Question4 from './components/Question4'
 import Question5 from './components/Question5'
 import Finish from './components/Finish'
+import NextButton from './components/NextButton'
 import React, { useState } from 'react';
 
 // Find bootstrap template details on https://bootswatch.com/cyborg/
 
 function App() {
 
+  const chosen = ['a','b','c']
   const [question, setQuestion] = useState(0)
   var display = <MainContainer />
 
@@ -48,30 +50,59 @@ function App() {
       break;
   }
 
+  const goBack = () => {
+    if (question > 1) {
+      setQuestion(question-1)
+
+    } else {
+      setQuestion(0)
+    }
+  }
+
+  const goForward = () => {
+    if (question < 7) {
+      setQuestion(question + 1)
+    } else {
+      setQuestion(0)
+    }
+  }
+
+  const setBtnText = () => {
+    if (question === 0) {
+      return 'Begin';
+    } else if (question > 0 & question < 6) {
+      return 'Next';
+    } else if (question === 6) {
+      return 'Finish';
+    } else {
+      return null;
+    }
+  }
+
   console.log(question)
 
   return (
     <div>
       { display }
+      {/* <NextButton /> */}
       <button 
             type="button" 
             className="btn bbtn btn-outline-success btn-lg btn-block"
-            onClick={() =>
-              question > 1 ? setQuestion(question-1) : setQuestion(0)
-            }
+            onClick={goBack}
             disabled={question===0}
         >Back</button>
       <button 
             type="button" 
             className="btn btn-outline-success btn-lg btn-block nbtn"
-            onClick={() =>
-              question < 7 ? setQuestion(question+1) : setQuestion(0)
-            }
-        >{question === 0 ? 'Begin' :
-        question > 0 & question < 6 ? 'Next' :
-        question === 6 ? 'Finish' : null}</button>
+            onClick={goForward}
+        >{setBtnText()}</button>
+      {chosen.map(choice => (
+        <>{choice}</>
+      ))}
     </div>
   );
 }
+
+
 
 export default App;

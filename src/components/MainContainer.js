@@ -9,9 +9,8 @@ const MainContainer = ({ DisplayContainer }) => {
         <div className="jumbotron">
             <Header />
             <SubHeader />
-            <hr class="my-4"></hr>
+            <hr className="my-4"></hr>
             <Text />
-            {/* <NextButton /> */}
         </div>
     )
 }
