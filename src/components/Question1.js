@@ -1,20 +1,13 @@
 import React from 'react'
-import NextButton from './NextButton'
 import Header from './Header'
 import SubHeader from './SubHeader'
-import AnswerButton from './AnswerButton'
 
-const answers = ['Aggressive', 'Booming (Economical)']
-
-const Question1 = () => {
+const Question1 = ({title, subText}) => {
 
     return (
-        <div className='jumbotron cttext'>
-            <Header title='Question 1' />
-            <SubHeader subText='Select your preferred style' />
-            {answers.map(answer =>(
-                <AnswerButton Answer={answer}/>
-            ))}
+        <div>
+            <Header title={title} />
+            <SubHeader subText={subText} />
             <hr/>
         </div>
     )
