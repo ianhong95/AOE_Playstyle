@@ -10,7 +10,7 @@ import React, { useState, useEffect, useRef } from 'react';
 function App() {
 
   const [question, setQuestion] = useState(0)
-  const [clicked, setClicked] = useState(false)
+  const [notClicked, setNotClicked] = useState(true)
 
   const [selected, setSelected] = useState([])
   const prevSelRef = useRef()
@@ -36,7 +36,7 @@ function App() {
         subText='Select your favourite playstyle'
         answers={answers1}
         />
-        answers = answers1
+      answers = answers1
       break;
     case 2:
       console.log('Loading question 2')
@@ -45,7 +45,7 @@ function App() {
         subText='What scale of games do you like to play?'
         answers={answers2}
         />
-        answers = answers2
+      answers = answers2
       break;
     case 3:
       console.log('Loading question 3')
@@ -54,7 +54,7 @@ function App() {
         subText='Select your favourite unit type:'
         answers={answers3}
         />
-        answers = answers3
+      answers = answers3
       break;
     case 4:
       console.log('Loading question 4')
@@ -63,7 +63,7 @@ function App() {
         subText='What kind of civ bonuses do you like?'
         answers={answers4}
         />
-        answers = answers4
+      answers = answers4
       break;
     case 5:
       console.log('Loading question 5')
@@ -72,7 +72,7 @@ function App() {
         subText='What is your favourite defensive structure?'
         answers={answers5}
         />
-        answers = answers5
+      answers = answers5
       break;
     case 6:
       console.log('Done!')
@@ -87,17 +87,22 @@ function App() {
 
   const goBack = () => {
     if (question > 1) {
-      setSelected(prevSelected)
+      setSelected(selected.pop())
       setQuestion(question-1)
+      setNotClicked(true)
     } else {
       setQuestion(0)
     }
   }
 
   const goForward = () => {
-    if (question < 7) {
+    if (question < 6) {
       setQuestion(question + 1)
-    } else {
+      setNotClicked(true)
+    } else if (question===6)  {
+      setQuestion(question + 1)
+      setNotClicked(false)
+    } else  {
       setQuestion(0)
     }
   }
@@ -114,6 +119,18 @@ function App() {
     }
   }
 
+  // Need separate states for answers within a question and answers between questions
+  function selectAnswer (answerList, selectedAnswer) {
+    if (selected.includes(selectedAnswer)) {
+      return null
+    } else if (answerList.some(item => selected.includes(item)) & !selected.includes(selectedAnswer)) {
+      setSelected(selected.pop())
+      setSelected([...selected, selectedAnswer])
+    } else  {
+      setSelected([selected,selectedAnswer])
+    }
+  }
+
   return (
       <div className='jumbotron cttext'>
 
@@ -121,11 +138,10 @@ function App() {
 
         {answers.map(answer =>(
           <button type="button" 
-          class="btn btn-outline-primary"
-          keys={answer}
+          className="btn btn-outline-primary"
           onClick={() => {
-            selected.includes(answer) ? setSelected([...selected]) : setSelected([...selected, answer]);
-            clicked===false ? setClicked(true) : setClicked(false)
+            selectAnswer(answers, answer)
+            setNotClicked(false)
           }}>{answer}</button>))}
 
         <p>{selected}</p>
@@ -143,12 +159,11 @@ function App() {
               type="button" 
               className="btn btn-outline-success btn-lg btn-block nbtn"
               onClick={goForward}
+              disabled={question===0 || question===6 ? false : notClicked}
           >{setBtnText()}</button>
-
       </div>
+
   );
 }
-
-
 
 export default App;

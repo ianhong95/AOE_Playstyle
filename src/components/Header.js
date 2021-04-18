@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 const Header = ({ title }) => {
     return (
         <header>
-            <h1 class="display-3">{title}</h1>
+            <h1 className="display-3">{title}</h1>
         </header>
     )
 }

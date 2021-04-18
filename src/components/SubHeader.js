@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 const SubHeader = ({ subText }) => {
     return (
         <h3>
-            <small class='text-muted'>{subText}</small>
+            <small className='text-muted'>{subText}</small>
         </h3>
     )
 }
