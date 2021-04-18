@@ -3,14 +3,21 @@ import './App.css';
 import MainContainer from './components/MainContainer'
 import Question1 from './components/Question1'
 import Finish from './components/Finish'
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // Find bootstrap template details on https://bootswatch.com/cyborg/
 
 function App() {
 
   const [question, setQuestion] = useState(0)
+  const [clicked, setClicked] = useState(false)
+
   const [selected, setSelected] = useState([])
+  const prevSelRef = useRef()
+  useEffect(() => {
+    prevSelRef.current = selected
+  })
+  const prevSelected = prevSelRef.current
 
   var display = <MainContainer />
 
@@ -44,7 +51,7 @@ function App() {
       console.log('Loading question 3')
       display = <Question1
         title='Question 3'
-        subText='Select your two favourite unit types:'
+        subText='Select your favourite unit type:'
         answers={answers3}
         />
         answers = answers3
@@ -72,6 +79,7 @@ function App() {
       display = <Finish />
       break;
     case 7:
+      setSelected([])
       setQuestion(0)
       display = <MainContainer />
       break;
@@ -79,6 +87,7 @@ function App() {
 
   const goBack = () => {
     if (question > 1) {
+      setSelected(prevSelected)
       setQuestion(question-1)
     } else {
       setQuestion(0)
@@ -89,7 +98,6 @@ function App() {
     if (question < 7) {
       setQuestion(question + 1)
     } else {
-      setSelected([])
       setQuestion(0)
     }
   }
@@ -106,30 +114,37 @@ function App() {
     }
   }
 
-  console.log(question)
-
   return (
       <div className='jumbotron cttext'>
+
         { display }
+
         {answers.map(answer =>(
           <button type="button" 
           class="btn btn-outline-primary"
-          onClick={() => {setSelected([...selected, answer])}}
-        >{answer}</button>
-        ))}
+          keys={answer}
+          onClick={() => {
+            selected.includes(answer) ? setSelected([...selected]) : setSelected([...selected, answer]);
+            clicked===false ? setClicked(true) : setClicked(false)
+          }}>{answer}</button>))}
+
         <p>{selected}</p>
+
         <hr></hr>
+
         <button 
               type="button" 
               className="btn bbtn btn-outline-success btn-lg btn-block"
               onClick={goBack}
               disabled={question===0}
           >Back</button>
+
         <button 
               type="button" 
               className="btn btn-outline-success btn-lg btn-block nbtn"
               onClick={goForward}
           >{setBtnText()}</button>
+
       </div>
   );
 }
