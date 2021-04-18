@@ -1,6 +1,6 @@
 import React from 'react'
 
-const progbar = () => {
+const ProgBar = () => {
     return (
         <div>
             <div class="progress">
@@ -10,4 +10,4 @@ const progbar = () => {
     )
 }
 
-export default progbar
+export default ProgBar

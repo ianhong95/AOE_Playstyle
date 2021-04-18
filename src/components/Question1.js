@@ -1,8 +1,6 @@
 import React from 'react'
-import NextButton from './NextButton'
 import Header from './Header'
 import SubHeader from './SubHeader'
-import AnswerButton from './AnswerButton'
 
 const Question1 = ({title, subText, answers}) => {
 

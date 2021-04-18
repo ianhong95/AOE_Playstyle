@@ -2,10 +2,6 @@ import logo from './logo.svg';
 import './App.css';
 import MainContainer from './components/MainContainer'
 import Question1 from './components/Question1'
-import Question2 from './components/Question2'
-import Question3 from './components/Question3'
-import Question4 from './components/Question4'
-import Question5 from './components/Question5'
 import Finish from './components/Finish'
 import React, { useState } from 'react';
 
@@ -93,6 +89,7 @@ function App() {
     if (question < 7) {
       setQuestion(question + 1)
     } else {
+      setSelected([])
       setQuestion(0)
     }
   }
