@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
+import AnswerContext from '../context/AnswerContext'
 
-const AnswerButton = ( { Answer }, { isClicked }) => {
+const AnswerButton = ( { Answer }) => {
+
     return (
         <button type="button" 
-            class="btn btn-outline-primary">{Answer}</button>
+        class="btn btn-outline-primary"
+        onClick={() => {}}
+        >{Answer}</button>
     )
 }
 
